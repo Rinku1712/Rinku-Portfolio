@@ -1,58 +1,52 @@
-import { useEffect, useState, type ReactNode } from "react";
-import { ArrowDown, MapPin, Phone, Mail, CircleDot } from "lucide-react";
-import { profile } from "../data";
+import { ArrowDown, CircleDot, Mail, MapPin, Phone } from 'lucide-react';
+import { useEffect, useState, type ReactNode } from 'react';
+import { profile } from '../data';
 
-const COMMAND = "node profile.js";
+const COMMAND = 'node profile.js';
 
-const K = ({ children }: { children: ReactNode }) => (
-  <span className="text-sky">{children}</span>
-);
-const S = ({ children }: { children: ReactNode }) => (
-  <span className="text-mint">{children}</span>
-);
-const P = ({ children }: { children: ReactNode }) => (
-  <span className="text-faint">{children}</span>
-);
+const K = ({ children }: { children: ReactNode }) => <span className="text-sky">{children}</span>;
+const S = ({ children }: { children: ReactNode }) => <span className="text-mint">{children}</span>;
+const P = ({ children }: { children: ReactNode }) => <span className="text-faint">{children}</span>;
 
 const OUTPUT: ReactNode[] = [
-  <P>{"{"}</P>,
+  <P>{'{'}</P>,
   <>
-    {"  "}
+    {'  '}
     <K>name</K>
     <P>: </P>
     <S>"Rinku Rohilla"</S>
     <P>,</P>
   </>,
   <>
-    {"  "}
+    {'  '}
     <K>degree</K>
     <P>: </P>
     <S>"BCA – Artificial Intelligence"</S>
     <P>,</P>
   </>,
   <>
-    {"  "}
+    {'  '}
     <K>college</K>
     <P>: </P>
     <S>"Code Quotient School of Technology"</S>
     <P>,</P>
   </>,
   <>
-    {"  "}
+    {'  '}
     <K>semester</K>
     <P>: </P>
     <S>"5th · 2024 – 2027"</S>
     <P>,</P>
   </>,
   <>
-    {"  "}
+    {'  '}
     <K>base</K>
     <P>: </P>
     <S>"Panipat, Haryana"</S>
     <P>,</P>
   </>,
   <>
-    {"  "}
+    {'  '}
     <K>stack</K>
     <P>: [</P>
     <S>"JS"</S>
@@ -65,7 +59,7 @@ const OUTPUT: ReactNode[] = [
     <P>],</P>
   </>,
   <>
-    {"  "}
+    {'  '}
     <K>roles</K>
     <P>: [</P>
     <S>"Developer"</S>
@@ -76,12 +70,12 @@ const OUTPUT: ReactNode[] = [
     <P>],</P>
   </>,
   <>
-    {"  "}
+    {'  '}
     <K>openTo</K>
     <P>: </P>
     <S>"internships & collaborations"</S>
   </>,
-  <P>{"}"}</P>,
+  <P>{'}'}</P>,
 ];
 
 export default function Hero() {
@@ -101,16 +95,16 @@ export default function Hero() {
   }, [typed, lines]);
 
   useEffect(() => {
-    const t = setInterval(
-      () => setRoleIdx((i) => (i + 1) % profile.roles.length),
-      2400
-    );
+    const t = setInterval(() => setRoleIdx((i) => (i + 1) % profile.roles.length), 2400);
     return () => clearInterval(t);
   }, []);
 
   return (
-    <section id="top" className="relative mx-auto max-w-6xl px-5 pb-20 pt-32 sm:px-8 sm:pt-40">
-      <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+    <section
+      id="top"
+      className="relative mx-auto max-w-6xl px-4 pb-16 pt-28 sm:px-8 sm:pb-20 sm:pt-40"
+    >
+      <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
         {/* left — editorial intro */}
         <div>
           <p className="mb-5 flex items-center gap-2 font-mono text-[13px] text-muted">
@@ -122,7 +116,7 @@ export default function Hero() {
             </span>
           </p>
 
-          <h1 className="font-display text-6xl font-semibold leading-[0.95] tracking-tight sm:text-7xl lg:text-[5.4rem]">
+          <h1 className="font-display text-[3.35rem] font-semibold leading-[0.95] tracking-tight sm:text-7xl lg:text-[5.4rem]">
             Rinku
             <br />
             Rohilla<span className="text-amber">.</span>
@@ -130,17 +124,12 @@ export default function Hero() {
 
           <div className="mt-6 flex h-8 items-center gap-2 font-mono text-base text-muted sm:text-lg">
             <span className="text-faint">$</span> i am a
-            <span
-              key={roleIdx}
-              className="role-in inline-block font-semibold text-amber"
-            >
+            <span key={roleIdx} className="role-in inline-block font-semibold text-amber">
               {profile.roles[roleIdx]}
             </span>
           </div>
 
-          <p className="mt-6 max-w-xl text-[15.5px] leading-relaxed text-muted">
-            {profile.pitch}
-          </p>
+          <p className="mt-6 max-w-xl text-[15.5px] leading-relaxed text-muted">{profile.pitch}</p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
@@ -162,10 +151,16 @@ export default function Hero() {
             <span className="inline-flex items-center gap-1.5">
               <MapPin size={13} className="text-amber" /> {profile.location}
             </span>
-            <a href={profile.phoneHref} className="inline-flex items-center gap-1.5 transition-colors hover:text-paper">
+            <a
+              href={profile.phoneHref}
+              className="inline-flex items-center gap-1.5 transition-colors hover:text-paper"
+            >
               <Phone size={13} className="text-amber" /> {profile.phone}
             </a>
-            <a href={`mailto:${profile.email}`} className="inline-flex items-center gap-1.5 transition-colors hover:text-paper">
+            <a
+              href={`mailto:${profile.email}`}
+              className="inline-flex items-center gap-1.5 transition-colors hover:text-paper"
+            >
               <Mail size={13} className="text-amber" /> {profile.email}
             </a>
           </div>
@@ -179,19 +174,14 @@ export default function Hero() {
               <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
               <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
               <span className="h-3 w-3 rounded-full bg-[#28c840]" />
-              <span className="ml-3 font-mono text-xs text-faint">
-                rinku@cqst: ~/portfolio
-              </span>
+              <span className="ml-3 font-mono text-xs text-faint">rinku@cqst: ~/portfolio</span>
               <CircleDot size={13} className="ml-auto text-mint" />
             </div>
-            <div className="min-h-[330px] px-5 py-5 font-mono text-[13px] leading-7 sm:text-[13.5px]">
+            <div className="min-h-[290px] overflow-x-auto px-4 py-4 font-mono text-[12px] leading-6 sm:min-h-[330px] sm:px-5 sm:py-5 sm:text-[13.5px] sm:leading-7">
               <p className="text-paper">
-                <span className="text-mint">➜</span>{" "}
-                <span className="text-sky">~</span>{" "}
+                <span className="text-mint">➜</span> <span className="text-sky">~</span>{' '}
                 {COMMAND.slice(0, typed)}
-                {typed < COMMAND.length && (
-                  <span className="caret text-amber">▍</span>
-                )}
+                {typed < COMMAND.length && <span className="caret text-amber">▍</span>}
               </p>
               {typed >= COMMAND.length && (
                 <div className="mt-1 text-paper">
@@ -202,7 +192,7 @@ export default function Hero() {
                   ))}
                   {lines >= OUTPUT.length && (
                     <p className="mt-2 text-faint">
-                      <span className="text-mint">✓</span> compiled in 0.42s —{" "}
+                      <span className="text-mint">✓</span> compiled in 0.42s —{' '}
                       <span className="text-amber">ready when you are</span>
                       <span className="caret text-amber">▍</span>
                     </p>

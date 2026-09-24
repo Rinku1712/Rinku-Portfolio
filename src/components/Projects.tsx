@@ -1,17 +1,20 @@
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
-import SectionHead from "./SectionHead";
-import Reveal from "./Reveal";
-import { projects, profile } from "../data";
+import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { profile, projects } from '../data';
+import Reveal from './Reveal';
+import SectionHead from './SectionHead';
 
 function StoreMock() {
   return (
     <div className="flex h-full gap-3 px-4 py-4">
       {[0, 1, 2].map((i) => (
-        <div key={i} className="flex-1 overflow-hidden rounded-md border border-line-soft bg-ink/60">
+        <div
+          key={i}
+          className="flex-1 overflow-hidden rounded-md border border-line-soft bg-ink/60"
+        >
           <div
             className="h-12 w-full"
             style={{
-              background: `linear-gradient(135deg, rgba(255,180,84,${0.35 - i * 0.08}), rgba(255,180,84,0.08))`,
+              background: `linear-gradient(135deg, rgba(255,159,104,${0.35 - i * 0.08}), rgba(255,159,104,0.08))`,
             }}
           />
           <div className="space-y-1.5 p-2.5">
@@ -30,9 +33,9 @@ function StoreMock() {
 
 function LibraryMock() {
   const rows = [
-    { name: "Data Structures", status: "Issued", color: "text-amber border-amber/40" },
-    { name: "Clean Code", status: "On shelf", color: "text-mint border-mint/40" },
-    { name: "AI Modern Approach", status: "Due", color: "text-sky border-sky/40" },
+    { name: 'Data Structures', status: 'Issued', color: 'text-amber border-amber/40' },
+    { name: 'Clean Code', status: 'On shelf', color: 'text-mint border-mint/40' },
+    { name: 'AI Modern Approach', status: 'Due', color: 'text-sky border-sky/40' },
   ];
   return (
     <div className="flex h-full gap-3 px-4 py-4">
@@ -50,7 +53,9 @@ function LibraryMock() {
         {rows.map((r) => (
           <div key={r.name} className="flex items-center gap-2 px-3 py-[7px]">
             <div className="h-1.5 w-24 rounded bg-line" />
-            <span className={`ml-auto rounded-full border px-2 py-px font-mono text-[9px] ${r.color}`}>
+            <span
+              className={`ml-auto rounded-full border px-2 py-px font-mono text-[9px] ${r.color}`}
+            >
               {r.status}
             </span>
           </div>
@@ -62,7 +67,7 @@ function LibraryMock() {
 
 export default function Projects() {
   return (
-    <section id="projects" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-24 sm:px-8">
+    <section id="projects" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-20 sm:px-8 sm:py-24">
       <SectionHead index="03" kicker="selected work" title="Things I've actually built." />
 
       <div className="grid gap-8 lg:grid-cols-2">
@@ -76,19 +81,15 @@ export default function Projects() {
                   <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]/80" />
                   <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]/80" />
                   <span className="ml-3 flex-1 truncate rounded bg-ink/70 px-3 py-1 font-mono text-[10.5px] text-faint">
-                    {p.accent === "amber"
-                      ? "localhost:3000/store"
-                      : "localhost:3000/library/admin"}
+                    {p.accent === 'amber' ? 'localhost:3000/store' : 'localhost:3000/library/admin'}
                   </span>
                 </div>
-                <div className="h-36">
-                  {p.accent === "amber" ? <StoreMock /> : <LibraryMock />}
-                </div>
+                <div className="h-36">{p.accent === 'amber' ? <StoreMock /> : <LibraryMock />}</div>
                 <span
                   className={`absolute right-3 top-3 rounded-full border px-2.5 py-1 font-mono text-[10.5px] backdrop-blur ${
-                    p.accent === "amber"
-                      ? "border-amber/40 bg-amber/10 text-amber"
-                      : "border-mint/40 bg-mint/10 text-mint"
+                    p.accent === 'amber'
+                      ? 'border-amber/40 bg-amber/10 text-amber'
+                      : 'border-mint/40 bg-mint/10 text-mint'
                   }`}
                 >
                   {p.kind}
@@ -97,9 +98,7 @@ export default function Projects() {
 
               {/* body */}
               <div className="flex flex-1 flex-col p-7">
-                <h3 className="font-display text-2xl font-semibold text-paper">
-                  {p.title}
-                </h3>
+                <h3 className="font-display text-2xl font-semibold text-paper">{p.title}</h3>
                 <p className="mt-1 font-mono text-[12.5px] text-faint">{p.subtitle}</p>
 
                 <div className="mt-4 flex flex-wrap gap-2">
@@ -118,7 +117,7 @@ export default function Projects() {
                     <li key={pt} className="flex gap-2.5 text-[14px] leading-relaxed text-muted">
                       <CheckCircle2
                         size={16}
-                        className={`mt-0.5 shrink-0 ${p.accent === "amber" ? "text-amber" : "text-mint"}`}
+                        className={`mt-0.5 shrink-0 ${p.accent === 'amber' ? 'text-amber' : 'text-mint'}`}
                       />
                       {pt}
                     </li>
@@ -129,9 +128,7 @@ export default function Projects() {
                   <a
                     href={`mailto:${profile.email}?subject=About your project: ${encodeURIComponent(p.title)}`}
                     className={`inline-flex items-center gap-2 font-mono text-[13px] transition-all ${
-                      p.accent === "amber"
-                        ? "text-amber hover:gap-3"
-                        : "text-mint hover:gap-3"
+                      p.accent === 'amber' ? 'text-amber hover:gap-3' : 'text-mint hover:gap-3'
                     }`}
                   >
                     Discuss this project <ArrowUpRight size={15} />

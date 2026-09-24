@@ -1,23 +1,23 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  --color-ink: #0a0f1f;
-  --color-ink-2: #0d1428;
-  --color-panel: #111a33;
-  --color-panel-2: #0e162b;
-  --color-line: #223052;
-  --color-line-soft: #1a2542;
-  --color-paper: #e9edf7;
-  --color-muted: #94a1bd;
-  --color-faint: #64718f;
-  --color-amber: #ffb454;
-  --color-amber-soft: #ffd9a0;
-  --color-mint: #5eead4;
-  --color-sky: #7aa2f7;
+  --color-ink: #08131f;
+  --color-ink-2: #0b1c29;
+  --color-panel: #102633;
+  --color-panel-2: #0d202c;
+  --color-line: #244253;
+  --color-line-soft: #1a3443;
+  --color-paper: #edf6f4;
+  --color-muted: #9ab2b6;
+  --color-faint: #66838b;
+  --color-amber: #ff9f68;
+  --color-amber-soft: #ffc29e;
+  --color-mint: #56e0c4;
+  --color-sky: #72b7ff;
 
-  --font-display: "Fraunces", "Georgia", serif;
-  --font-body: "Instrument Sans", "Segoe UI", sans-serif;
-  --font-mono: "JetBrains Mono", "SFMono-Regular", monospace;
+  --font-display: 'Fraunces', 'Georgia', serif;
+  --font-body: 'Instrument Sans', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', monospace;
 }
 
 html {
@@ -32,23 +32,23 @@ body {
 }
 
 ::selection {
-  background: rgba(255, 180, 84, 0.3);
-  color: #fff7ec;
+  background: rgba(255, 159, 104, 0.3);
+  color: #fff8f2;
 }
 
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0f1f;
+  background: #08131f;
 }
 ::-webkit-scrollbar-thumb {
-  background: #223052;
+  background: #244253;
   border-radius: 8px;
-  border: 2px solid #0a0f1f;
+  border: 2px solid #08131f;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #31437a;
+  background: #356072;
 }
 
 /* ---------- ambient layered background ---------- */
@@ -58,9 +58,9 @@ body {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(52rem 34rem at 12% -6%, rgba(255, 180, 84, 0.09), transparent 60%),
-    radial-gradient(46rem 30rem at 96% 18%, rgba(94, 234, 212, 0.07), transparent 62%),
-    radial-gradient(60rem 44rem at 50% 118%, rgba(122, 162, 247, 0.08), transparent 60%),
+    radial-gradient(52rem 34rem at 8% -8%, rgba(255, 159, 104, 0.13), transparent 60%),
+    radial-gradient(46rem 30rem at 98% 20%, rgba(86, 224, 196, 0.09), transparent 62%),
+    radial-gradient(60rem 44rem at 50% 118%, rgba(114, 183, 255, 0.1), transparent 60%),
     var(--color-ink);
 }
 .bg-grid {
@@ -69,8 +69,8 @@ body {
   z-index: -1;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(148, 161, 189, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 161, 189, 0.055) 1px, transparent 1px);
+    linear-gradient(rgba(154, 178, 182, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(154, 178, 182, 0.06) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 30%, transparent 78%);
 }
@@ -164,7 +164,7 @@ body {
   }
 }
 .dot-ping::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   border-radius: 9999px;
@@ -204,5 +204,15 @@ body {
 /* ---------- shimmering section rule ---------- */
 .rule {
   height: 1px;
-  background: linear-gradient(90deg, var(--color-amber), rgba(255, 180, 84, 0) 70%);
+  background: linear-gradient(90deg, var(--color-amber), rgba(255, 159, 104, 0) 70%);
+}
+
+@media (max-width: 640px) {
+  .bg-grid {
+    background-size: 38px 38px;
+  }
+
+  .reveal {
+    transform: translateY(16px);
+  }
 }

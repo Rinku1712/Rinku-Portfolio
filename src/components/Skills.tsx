@@ -1,58 +1,58 @@
 import {
   Chart as ChartJS,
-  RadialLinearScale,
-  PointElement,
-  LineElement,
   Filler,
-  Tooltip,
   Legend,
+  LineElement,
+  PointElement,
+  RadialLinearScale,
+  Tooltip,
   type ChartOptions,
-} from "chart.js";
-import { Radar } from "react-chartjs-2";
+} from 'chart.js';
+import type { LucideIcon } from 'lucide-react';
 import {
-  ShoppingBag,
   Clapperboard,
   FileSpreadsheet,
   GitBranch,
   GitFork,
-  Wrench,
+  ShoppingBag,
   UserCheck,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
-import SectionHead from "./SectionHead";
-import Reveal, { useInView } from "./Reveal";
+  Wrench,
+} from 'lucide-react';
+import { Radar } from 'react-chartjs-2';
 import {
-  technicalSkills,
   professionalSkills,
-  tools,
   radarAxes,
-  radarToday,
   radarGoal,
-} from "../data";
+  radarToday,
+  technicalSkills,
+  tools,
+} from '../data';
+import Reveal, { useInView } from './Reveal';
+import SectionHead from './SectionHead';
 
 ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
 
-const options: ChartOptions<"radar"> = {
+const options: ChartOptions<'radar'> = {
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
     legend: {
-      position: "bottom",
+      position: 'bottom',
       labels: {
-        color: "#94a1bd",
+        color: '#9ab2b6',
         usePointStyle: true,
-        pointStyle: "circle",
+        pointStyle: 'circle',
         boxWidth: 6,
         padding: 18,
-        font: { family: "JetBrains Mono", size: 11 },
+        font: { family: 'JetBrains Mono', size: 11 },
       },
     },
     tooltip: {
-      backgroundColor: "#111a33",
-      borderColor: "#223052",
+      backgroundColor: '#102633',
+      borderColor: '#244253',
       borderWidth: 1,
-      titleColor: "#e9edf7",
-      bodyColor: "#94a1bd",
+      titleColor: '#edf6f4',
+      bodyColor: '#9ab2b6',
       padding: 12,
       callbacks: {
         label: (ctx) => ` ${ctx.dataset.label}: ${ctx.parsed.r}/100`,
@@ -64,11 +64,11 @@ const options: ChartOptions<"radar"> = {
       min: 0,
       max: 100,
       ticks: { display: false, stepSize: 25 },
-      grid: { color: "rgba(148,161,189,0.12)" },
-      angleLines: { color: "rgba(148,161,189,0.12)" },
+      grid: { color: 'rgba(154,178,182,0.14)' },
+      angleLines: { color: 'rgba(154,178,182,0.14)' },
       pointLabels: {
-        color: "#94a1bd",
-        font: { family: "JetBrains Mono", size: 11 },
+        color: '#9ab2b6',
+        font: { family: 'JetBrains Mono', size: 11 },
       },
     },
   },
@@ -78,23 +78,23 @@ const data = {
   labels: radarAxes,
   datasets: [
     {
-      label: "Today",
+      label: 'Today',
       data: radarToday,
-      borderColor: "#ffb454",
-      backgroundColor: "rgba(255,180,84,0.16)",
-      pointBackgroundColor: "#ffb454",
-      pointBorderColor: "#0a0f1f",
+      borderColor: '#ff9f68',
+      backgroundColor: 'rgba(255,159,104,0.16)',
+      pointBackgroundColor: '#ff9f68',
+      pointBorderColor: '#08131f',
       pointRadius: 3.5,
       borderWidth: 2,
     },
     {
-      label: "2027 goal",
+      label: '2027 goal',
       data: radarGoal,
-      borderColor: "#5eead4",
-      backgroundColor: "rgba(94,234,212,0.05)",
+      borderColor: '#5eead4',
+      backgroundColor: 'rgba(94,234,212,0.05)',
       borderDash: [5, 5],
-      pointBackgroundColor: "#5eead4",
-      pointBorderColor: "#0a0f1f",
+      pointBackgroundColor: '#5eead4',
+      pointBorderColor: '#08131f',
       pointRadius: 3,
       borderWidth: 1.5,
     },
@@ -118,7 +118,7 @@ export default function Skills() {
   const { ref, visible } = useInView<HTMLDivElement>(0.25);
 
   return (
-    <section id="skills" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-24 sm:px-8">
+    <section id="skills" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-20 sm:px-8 sm:py-24">
       <SectionHead index="02" kicker="capabilities" title="A toolbox that spans code & commerce." />
 
       <div className="grid gap-12 lg:grid-cols-2">
@@ -142,7 +142,7 @@ export default function Skills() {
                     <div
                       className="bar-fill h-full rounded-full bg-gradient-to-r from-amber/70 to-amber"
                       style={{
-                        width: visible ? `${s.level}%` : "0%",
+                        width: visible ? `${s.level}%` : '0%',
                         transitionDelay: `${i * 110}ms`,
                       }}
                     />

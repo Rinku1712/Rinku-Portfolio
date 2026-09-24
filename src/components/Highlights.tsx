@@ -1,16 +1,16 @@
+import type { LucideIcon } from 'lucide-react';
 import {
-  TrendingUp,
-  Clapperboard,
   Award,
-  Users,
-  MessageSquare,
-  Trophy,
+  Clapperboard,
   HeartHandshake,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
-import SectionHead from "./SectionHead";
-import Reveal from "./Reveal";
-import { achievements, responsibilities, activities } from "../data";
+  MessageSquare,
+  TrendingUp,
+  Trophy,
+  Users,
+} from 'lucide-react';
+import { achievements, activities, responsibilities } from '../data';
+import Reveal from './Reveal';
+import SectionHead from './SectionHead';
 
 const iconMap: Record<string, LucideIcon> = {
   trending: TrendingUp,
@@ -23,7 +23,7 @@ const activityIcons = [Trophy, HeartHandshake];
 
 export default function Highlights() {
   return (
-    <section id="highlights" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-24 sm:px-8">
+    <section id="highlights" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-20 sm:px-8 sm:py-24">
       <SectionHead index="05" kicker="proof & presence" title="Beyond the classroom." />
 
       {/* achievements */}
@@ -36,9 +36,7 @@ export default function Highlights() {
                 <span className="grid h-11 w-11 place-items-center rounded-md border border-amber/30 bg-amber/10 text-amber transition-transform group-hover:scale-110">
                   <Icon size={19} />
                 </span>
-                <h3 className="mt-5 font-display text-lg font-semibold text-paper">
-                  {a.title}
-                </h3>
+                <h3 className="mt-5 font-display text-lg font-semibold text-paper">{a.title}</h3>
                 <p className="mt-2 text-[14px] leading-relaxed text-muted">{a.body}</p>
               </article>
             </Reveal>

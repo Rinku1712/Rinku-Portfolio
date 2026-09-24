@@ -1,33 +1,31 @@
-import { GraduationCap, CalendarDays, Sparkles, Target } from "lucide-react";
-import SectionHead from "./SectionHead";
-import Reveal from "./Reveal";
-import { education } from "../data";
+import { CalendarDays, GraduationCap, Sparkles, Target } from 'lucide-react';
+import { education } from '../data';
+import Reveal from './Reveal';
+import SectionHead from './SectionHead';
 
 const facts = [
-  { icon: CalendarDays, label: "Semester", value: "5th of 6 · BCA-AI" },
-  { icon: Target, label: "Focus", value: "Full-stack web + AI" },
-  { icon: Sparkles, label: "Also running", value: "A Meesho store & a YouTube channel" },
+  { icon: CalendarDays, label: 'Semester', value: '5th of 6 · BCA-AI' },
+  { icon: Target, label: 'Focus', value: 'Full-stack web + AI' },
+  { icon: Sparkles, label: 'Also running', value: 'A Meesho store & a YouTube channel' },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-24 sm:px-8">
+    <section id="about" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-20 sm:px-8 sm:py-24">
       <SectionHead index="01" kicker="about" title="Student by day, operator by night." />
 
       <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr]">
         <Reveal>
           <p className="text-[16px] leading-relaxed text-muted">
-            I study <span className="text-paper">Artificial Intelligence</span> at Code
-            Quotient School of Technology — but my classroom extends well beyond it.
-            I run my own storefront on{" "}
-            <span className="text-amber">Meesho</span>, produce study content for
-            competitive-exam students, and build full-stack apps with{" "}
+            I study <span className="text-paper">Artificial Intelligence</span> at Code Quotient
+            School of Technology — but my classroom extends well beyond it. I run my own storefront
+            on <span className="text-amber">Meesho</span>, produce study content for
+            competitive-exam students, and build full-stack apps with{' '}
             <span className="text-mint">JavaScript, Node.js and Express</span>.
           </p>
           <p className="mt-4 text-[16px] leading-relaxed text-muted">
-            Commerce in school, AI in college, commerce-on-the-internet in practice —
-            everything I do sits at the intersection of{" "}
-            <span className="text-paper">code and business</span>.
+            Commerce in school, AI in college, commerce-on-the-internet in practice — everything I
+            do sits at the intersection of <span className="text-paper">code and business</span>.
           </p>
 
           <ul className="mt-8 space-y-4">
@@ -59,9 +57,7 @@ export default function About() {
                     {e.period}
                   </span>
                 </div>
-                <h3 className="mt-5 font-display text-xl font-semibold text-paper">
-                  {e.degree}
-                </h3>
+                <h3 className="mt-5 font-display text-xl font-semibold text-paper">{e.degree}</h3>
                 <p className="mt-1 text-[14px] italic text-muted">{e.school}</p>
                 <p className="mt-3 border-t border-line-soft pt-3 font-mono text-[12.5px] text-faint">
                   {e.note}

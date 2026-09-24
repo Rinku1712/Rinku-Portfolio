@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { Mail, Phone, MapPin, Copy, Check, ArrowUpRight } from "lucide-react";
-import Reveal from "./Reveal";
-import { profile } from "../data";
+import { ArrowUpRight, Check, Copy, Mail, MapPin, Phone } from 'lucide-react';
+import { useState } from 'react';
+import { profile } from '../data';
+import Reveal from './Reveal';
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -10,11 +10,11 @@ export default function Contact() {
     try {
       await navigator.clipboard.writeText(profile.email);
     } catch {
-      const ta = document.createElement("textarea");
+      const ta = document.createElement('textarea');
       ta.value = profile.email;
       document.body.appendChild(ta);
       ta.select();
-      document.execCommand("copy");
+      document.execCommand('copy');
       document.body.removeChild(ta);
     }
     setCopied(true);
@@ -23,7 +23,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="relative scroll-mt-24 overflow-hidden">
-      <div className="mx-auto max-w-6xl px-5 py-28 sm:px-8">
+      <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
         <Reveal>
           <p className="mb-4 font-mono text-[13px] text-amber">
             <span className="text-faint">06</span>
@@ -35,8 +35,8 @@ export default function Contact() {
             <span className="italic text-amber"> worth shipping.</span>
           </h2>
           <p className="mt-6 max-w-xl text-[15.5px] leading-relaxed text-muted">
-            Internships, collaborations, e-commerce projects, or just a conversation
-            about code and content — my inbox is open.
+            Internships, collaborations, e-commerce projects, or just a conversation about code and
+            content — my inbox is open.
           </p>
         </Reveal>
 
@@ -44,27 +44,33 @@ export default function Contact() {
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
               href={`mailto:${profile.email}`}
-              className="group inline-flex items-center gap-2.5 rounded-md bg-amber px-7 py-3.5 font-mono text-sm font-semibold text-ink transition-all hover:bg-amber-soft hover:shadow-[0_12px_34px_-10px_rgba(255,180,84,0.6)]"
+              className="group inline-flex max-w-full items-center gap-2.5 rounded-md bg-amber px-5 py-3.5 font-mono text-sm font-semibold text-ink transition-all hover:bg-amber-soft hover:shadow-[0_12px_34px_-10px_rgba(255,159,104,0.6)] sm:px-7"
             >
               <Mail size={16} />
-              {profile.email}
-              <ArrowUpRight size={15} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <span className="break-all text-left">{profile.email}</span>
+              <ArrowUpRight
+                size={15}
+                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
             </a>
             <button
               onClick={copyEmail}
               className={`inline-flex items-center gap-2 rounded-md border px-5 py-3.5 font-mono text-sm transition-all ${
                 copied
-                  ? "border-mint/60 bg-mint/10 text-mint"
-                  : "border-line text-muted hover:border-amber/50 hover:text-amber"
+                  ? 'border-mint/60 bg-mint/10 text-mint'
+                  : 'border-line text-muted hover:border-amber/50 hover:text-amber'
               }`}
             >
               {copied ? <Check size={15} /> : <Copy size={15} />}
-              {copied ? "Copied!" : "Copy address"}
+              {copied ? 'Copied!' : 'Copy address'}
             </button>
           </div>
 
           <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 font-mono text-[13px] text-faint">
-            <a href={profile.phoneHref} className="inline-flex items-center gap-2 transition-colors hover:text-paper">
+            <a
+              href={profile.phoneHref}
+              className="inline-flex items-center gap-2 transition-colors hover:text-paper"
+            >
               <Phone size={14} className="text-mint" /> {profile.phone}
             </a>
             <span className="inline-flex items-center gap-2">
@@ -81,7 +87,8 @@ export default function Contact() {
             © 2026 <span className="text-muted">Rinku Rohilla</span> · Panipat, Haryana
           </p>
           <p>
-            <span className="text-amber">▲</span> BCA-AI · CQST College — built with React & Tailwind
+            <span className="text-amber">▲</span> BCA-AI · CQST College — built with React &
+            Tailwind
           </p>
         </div>
       </footer>
